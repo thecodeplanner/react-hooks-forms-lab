@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { v4 as uuid } from "uuid";
 
 function ItemForm( {onItemFormSubmit}) {
-  const [itemName, setItemName] = useState('')
-  const [itemCategory, setItemCategory] = useState('Produce')
+  const [name, setItemName] = useState('')
+  const [category, setItemCategory] = useState('Produce')
 
   function handleItemNameChange(event) {
     setItemName(event.target.value)
@@ -18,8 +18,8 @@ function ItemForm( {onItemFormSubmit}) {
 
     onItemFormSubmit({
       id: uuid(),
-      itemName,
-      itemCategory,
+      name,
+      category,
     })
   }
 
@@ -27,12 +27,12 @@ function ItemForm( {onItemFormSubmit}) {
     <form onSubmit={handleSubmit} className="NewItem">
       <label>
         Name:
-        <input type="text" name="name" value={itemName} onChange={handleItemNameChange} />
+        <input type="text" name="name" value={name} onChange={handleItemNameChange} />
       </label>
 
       <label>
         Category:
-        <select name="category" value={itemCategory} onChange={handleItemCategoryChange}>
+        <select name="category" value={category} onChange={handleItemCategoryChange}>
           <option value="Produce">Produce</option>
           <option value="Dairy">Dairy</option>
           <option value="Dessert">Dessert</option>
